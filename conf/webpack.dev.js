@@ -14,7 +14,7 @@ module.exports = Merge(CommonConfig, {
     host: 'localhost',
     historyApiFallback: true, // true for index.html upon 404, object for multiple paths
     noInfo: false,
-    stats: 'minimal',
+    // stats: 'minimal',
     hot: true  // hot module replacement. Depends on HotModuleReplacementPlugin
   }
 });
