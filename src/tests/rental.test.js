@@ -1,5 +1,5 @@
-import Rental from './../classes/rental';
-import Movie from './../classes/movie';
+import Rental from '../classes/rental';
+import Movie from '../classes/movie';
 
 // beforeEach(()=>{
 

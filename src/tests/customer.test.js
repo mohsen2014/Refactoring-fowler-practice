@@ -1,6 +1,6 @@
-import Movie from './../classes/movie';
-import Rental from './../classes/rental';
-import Customer from './../classes/customer';
+import Movie from '../classes/movie';
+import Rental from '../classes/rental';
+import Customer from '../classes/customer';
 
 describe("test customer class", ()=>{
     test("create customer class and getName", () => {
