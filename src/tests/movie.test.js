@@ -1,9 +1,4 @@
 import Movie from '../classes/movie';
-// jest.mock('../classes/movie');
-
-// beforeEach(()=>{
-//     // Movie.mockClear();
-// });
 
 describe('test for movie class', ()=>{
     test('create Movie and get Title', ()=> {

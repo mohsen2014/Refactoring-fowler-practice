@@ -19,7 +19,7 @@ module.exports = class {
         let result = `<h1>Rental Record for <em> ${this.getName()}</em></h1><p>`;
         _.each(this._rentals, (rental)=>{
             result += `${rental.getMovie().getTitle()}
-                ${rental.getCharge()}<br>`;
+                ${rental.getMovie().getCharge(rental.getDaysRented())}<br>`;
         });
         result += `<p>You owed is <em>${this.getTotalCharge()}</em></p>
             <p><em>You earned ${this.getTotalFrequentRenterPoints()}</em> frequent renter points</p>`;
@@ -30,7 +30,7 @@ module.exports = class {
         let result = `Rental Record for ${this.getName()}\n`;
         _.each(this._rentals, (rental)=>{
             result += `\t ${rental.getMovie().getTitle()} \t
-                ${rental.getCharge()} \n`;
+                ${rental.getMovie().getCharge(rental.getDaysRented())} \n`;
         });
         result += `Amount owed is ${this.getTotalCharge()} \n
          You earned ${this.getTotalFrequentRenterPoints()} frequent renter points`;
@@ -48,7 +48,7 @@ module.exports = class {
     getTotalCharge(){
         let result = 0;
         _.each(this._rentals, (rental)=>{
-            result += rental.getCharge();
+            result += rental.getMovie().getCharge(rental.getDaysRented());
         });
         return result;
     }

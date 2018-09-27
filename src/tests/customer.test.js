@@ -7,6 +7,7 @@ describe("test customer class", ()=>{
         let customer = new Customer('Mohsen');
         expect(customer.getName()).toBe('Mohsen');
     });
+    
     test("expext when add a rental that has added to _rentals", ()=>{
         let customer = new Customer('Mohsen');
         let movie = new Movie('movie 1', Movie.NEW_RELEASE);

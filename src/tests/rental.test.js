@@ -1,10 +1,6 @@
 import Rental from '../classes/rental';
 import Movie from '../classes/movie';
 
-// beforeEach(()=>{
-
-// });
-
 describe('test for rental class', ()=>{
     test("expect create rental class and getDaysRental",() => {
         let movie = new Movie("Movie 1", Movie.NEW_RELEASE);
