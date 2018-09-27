@@ -21,37 +21,13 @@ module.exports = class {
         let rentals = _.clone(this._rentals);
         let result = `Rental Record for ${this.getName()}\n`;
         _.each(rentals, (rental)=>{
-            const thisAmount = this.amountFor(rental);
-            frequentRenterPoints++; 
-            if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1) {
-                frequentRenterPoints ++;
-            }
-            result += `\t ${rental.getMovie().getTitle()} \t${thisAmount} \n`;
-            totalAmount += thisAmount;
+            frequentRenterPoints += rental.getFrequentRenterPoints(); 
+            result += `\t ${rental.getMovie().getTitle()} \t${rental.getCharge()} \n`;
+            totalAmount += rental.getCharge();
         });
         result += `Amount owed is ${totalAmount} \n You earned ${frequentRenterPoints} frequent renter points`;
         return result;
     }
 
-    amountFor(rental){
-        let thisAmount = 0;
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                thisAmount += 2;
-                if(rental.getDaysRented() > 2){
-                    thisAmount += (rental.getDaysRented() - 2) * 1.5;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                thisAmount += rental.getDaysRented() * 3;
-                break;
-            case Movie.CHILDREN: 
-                thisAmount += 1.5;
-                if(rental.getDaysRented() > 2){
-                    thisAmount += (rental.getDaysRented() - 3) * 1.5;
-                }
-                break;
-        }
-        return thisAmount;
-    }
+    
 }
