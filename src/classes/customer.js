@@ -16,18 +16,23 @@ module.exports = class {
     }
 
     statement(){
-        let totalAmount = 0;
         let frequentRenterPoints = 0;
-        let rentals = _.clone(this._rentals);
         let result = `Rental Record for ${this.getName()}\n`;
-        _.each(rentals, (rental)=>{
+        _.each(this._rentals, (rental)=>{
             frequentRenterPoints += rental.getFrequentRenterPoints(); 
             result += `\t ${rental.getMovie().getTitle()} \t${rental.getCharge()} \n`;
-            totalAmount += rental.getCharge();
         });
-        result += `Amount owed is ${totalAmount} \n You earned ${frequentRenterPoints} frequent renter points`;
+        result += `Amount owed is ${this.getTotalCharge()} \n
+         You earned ${frequentRenterPoints} frequent renter points`;
         return result;
     }
 
+    getTotalCharge(){
+        let result = 0;
+        _.each(this._rentals, (rental)=>{
+            result += rental.getCharge();
+        });
+        return result;
+    }
     
 }
