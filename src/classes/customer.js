@@ -15,7 +15,7 @@ module.exports = class {
         return this._name; 
     }
 
-    statement(){ debugger;
+    statement(){
         let totalAmount = 0;
         let frequentRenterPoints = 0;
         let rentals = _.clone(this._rentals);

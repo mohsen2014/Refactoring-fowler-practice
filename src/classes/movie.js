@@ -8,7 +8,7 @@ class Movie{
         return this._priceCode;
     }
 
-    setPriceCode(proceCode){
+    setPriceCode(priceCode){
         this._priceCode = priceCode;
     }
     getTitle(){
